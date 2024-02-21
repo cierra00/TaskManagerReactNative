@@ -9,13 +9,16 @@ const CheckComponent = ({styles, value, onValueChange}) => {
       width: 50,
       backgroundColor: 'yellow',
       checkedColor: 'green'
+    }, 
+    completed:{
+      backgroundColor: "#48d1cc"
     }
-  })
+  });
   return (
     <CheckBox title="Completed"
             style={style.button}
             name="Name"
-            checkedColor='red'
+            checkedColor='green'
             checked={value}
             size={20}
             

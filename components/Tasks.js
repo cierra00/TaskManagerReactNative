@@ -46,6 +46,16 @@ function addTask(){
       setTaskList(listItems);
       console.log(listItems)
   }
+  const notComplete = taskList.filter((task)=> task.isComplete !==  true)
+   function compare(a, b){
+    if(a.isComplete < b.isComplete){
+      return -1
+    }
+    if(a.isComplete > b.isComplete){
+      return 1
+    }
+    return 0;
+   }
   return (
     
     <ScrollView>
@@ -62,14 +72,25 @@ function addTask(){
 
         />
     
-            { taskList.length > 0? taskList.map((task) => (
+            { 
+
+            taskList.length > 0? taskList.filter((task)=> task.isComplete !==  true).map((task) => (
                 <TaskItem style={styles} 
                 task={task} handleCheck={handleCheck} 
                 deleteTask={deleteTask}
                 key={task.id}
                 
                 />
-               )) : <Text style={{ justifyContent: 'center'}}>No Tasks</Text>
+               )) : <Text style={{ textAlign: 'center', margin: 50, fontSize: 40, color : 'red'}}>There Are Currently No Tasks. Please add a Task!</Text>
+            }
+            { taskList.filter((task)=> task.isComplete !==  false).map((task) => (
+                <TaskItem style={styles} 
+                task={task} handleCheck={handleCheck} 
+                deleteTask={deleteTask}
+                key={task.id}
+                
+                />
+               )) 
             }
          
         
