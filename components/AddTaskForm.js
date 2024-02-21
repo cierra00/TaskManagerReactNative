@@ -1,30 +1,33 @@
 import React from 'react'
 import { TextInput, View} from 'react-native';
-import { Button } from '@rneui/base';
 import SubmitButton from './SubmitButton';
+import { Input } from '@rneui/themed';
 
-const AddTaskForm = ({style, titleValue, onChangeTitleText, titlePlaceHolder, descriptionValue, onChangeDescriptionText, descriptionPlaceHolder, onPress }) => {
-    
+const AddTaskForm = ({style, titleValue, onChangeTitleText, titlePlaceHolder, descriptionValue, onChangeDescriptionText, onPress }) => {
+    const styles=({
+      marginTop: 100
+    })
   return (
-    <View>
-        <TextInput
+    <View style={{marginTop: 20}}>
+        <Input
         requiured
+        type="solid"
         name="Title"
         id="title"
         onChangeText={onChangeTitleText}
         style={style}
-        placeholder={titlePlaceHolder}
+        placeholder=" Task Name"
         value={titleValue}
        
     
   />
  
-        <TextInput
+        <Input
         name="description"
         id="description"
         onChangeText={onChangeDescriptionText}
         style={style}
-        placeholder={descriptionPlaceHolder}
+        placeholder="Task Description"
         value={descriptionValue}
        
     

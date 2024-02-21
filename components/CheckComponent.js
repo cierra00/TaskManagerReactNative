@@ -1,14 +1,25 @@
 import React from 'react'
-import { CheckBox } from 'react-native';
+import { StyleSheet } from 'react-native'
+import { CheckBox } from 'react-native-elements'
 
-const CheckComponent = ({styles, value, onValueChange, checked}) => {
+const CheckComponent = ({styles, value, onValueChange}) => {
+  const style = StyleSheet.create({
+    
+    button:{
+      width: 50,
+      backgroundColor: 'yellow',
+      checkedColor: 'green'
+    }
+  })
   return (
-    <CheckBox title="title"
-            style={styles}
+    <CheckBox title="Completed"
+            style={style.button}
             name="Name"
             checkedColor='red'
-            value={value}
-            onValueChange={onValueChange}
+            checked={value}
+            size={20}
+            
+            onPress={onValueChange}
             on
             />
   )

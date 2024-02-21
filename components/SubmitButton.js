@@ -1,12 +1,15 @@
 import React from 'react'
-import { Button } from 'react-native';
+import { Button } from 'react-native-elements';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const SubmitButton = ( {styles, onPress}) => {
   return (
     <Button
-    text="Button"
+    style={{"width": '90%', flex: 1, "marginLeft": "auto", "marginRight": "auto"}}
+    text="Button" 
+  
     title="Submit New Task"
-    color="#841584"
+    color="red"
     accessibilityLabel="Learn more about this purple button"
     onPress = {onPress}
   />

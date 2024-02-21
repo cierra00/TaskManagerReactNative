@@ -2,15 +2,15 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, SafeAreaView} from 'react-native';
 import Tasks from './components/Tasks';
+import Header from './components/Header'
 
 
 export default function App() {
-   
 
-  
+ 
       
     return (
-      <SafeAreaView style={styles.container}>            
+      <SafeAreaView style={styles.container}>         
         <Tasks  styles={styles}/>             
       </SafeAreaView>
     );
@@ -21,12 +21,14 @@ export default function App() {
     container: {
       flex: 1,
       marginTop: StatusBar.currentHeight || 0,
+     backgroundColor: 'light-green',
     },
     item: {
       backgroundColor: '#f9c2ff',
       padding: 20,
       marginVertical: 8,
       marginHorizontal: 16,
+      backgroundColor: '#fff'
     },
     title: {
       fontSize: 32,
@@ -35,8 +37,7 @@ export default function App() {
       height: 40,
       margin: 12,
       borderWidth: 2,
-      borderColor: "green",
-      padding: 10,
+      borderColor: "#397af8",
     },
     button: {
       alignItems: 'center',
@@ -49,6 +50,9 @@ export default function App() {
     },
     checkbox: {
       alignSelf: 'center',
+    },
+    header:{
+      fontSize: 40
     }
   });
   

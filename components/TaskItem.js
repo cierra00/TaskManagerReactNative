@@ -1,35 +1,56 @@
 import React from 'react'
-import {View, Text, TouchableOpacity, CheckBox} from 'react-native';
+import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import DeleteTask from '../components/DeleteTask';
 import CheckComponent from './CheckComponent';
+import { Card } from '@rneui/themed';
 
 const TaskItem = ({styles, task, handleCheck, deleteTask}) => {
+  const myStyle = StyleSheet.create({
+    container: {
+      flex: 1,
+     backgroundColor: 'yellow',
+    },
+    card:{
+      flex:1,
+      flexDirection: 'column'
+    },
+    check:{
+      flexDirection: 'row',
+      alignContent: 'center',
+      justifyContent:'center',
+      alignItems: 'center'
+    }
+  });
   return (
     
-    <View>
+    <View style={{flexDirection:'column', alignContent:'center', justifyContent:'center', padding: 1}}>
+    <Card>
     <TouchableOpacity
        key = {task.id}
-       style = {styles}
+       style = {myStyle.card}
        onPress = {() => handleCheck(task)}>
-       <Text style = {styles}>
+      
        
-         {task.id}<br />
-         {task.title}<br />
-         {task.description}<br />
-         {task.isComplete}<br />
+       
+         <Card.Title>{task.title}</Card.Title>
+         <Text>{task.description}</Text>
+         <Text> {task.isComplete}</Text>
          
-         
-            <CheckComponent
+           <View style={myStyle.check}>
+           <CheckComponent
             title="title"
             name="Name"
-            checkedColor='red'
+            checkedColor='blue'
             value={task.isComplete}
             onValueChange={()=>handleCheck(task.id)}
             />
-          <DeleteTask  onPress={()=>deleteTask(task.id)} />
-          <hr />
-        </Text>
+          <DeleteTask style={styles
+          } onPress={()=>deleteTask(task.id)} />
+           </View>
+
+       
     </TouchableOpacity>
+    </Card>
     </View>
   )
   

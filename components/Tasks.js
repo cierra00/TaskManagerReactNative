@@ -1,9 +1,10 @@
 import React,{useState, useEffect} from 'react'
-import {CheckBox,Text, View, TouchableOpacity, ScrollView} from 'react-native';
+import {ScrollView, Text} from 'react-native';
 import uuid from 'react-native-uuid';
 import AddTaskForm from './AddTaskForm';
 import TaskItem from './TaskItem';
 import TaskData from './data/TaskData'
+import Header from '../components/Header';
 
 
 const Tasks = ({styles}) => {
@@ -46,9 +47,11 @@ function addTask(){
       console.log(listItems)
   }
   return (
+    
     <ScrollView>
+      <Header style={styles} />
       <AddTaskForm  
-        style={styles.input} 
+        style={styles} 
         titleValue={title}
         onChangeTitleText={setTitle} 
         titlePlaceHolder={title} 
@@ -59,14 +62,14 @@ function addTask(){
 
         />
     
-            {taskList.map((task) => (
-                <TaskItem style={styles.container} 
+            { taskList.length > 0? taskList.map((task) => (
+                <TaskItem style={styles} 
                 task={task} handleCheck={handleCheck} 
                 deleteTask={deleteTask}
                 key={task.id}
                 
                 />
-               ))
+               )) : <Text style={{ justifyContent: 'center'}}>No Tasks</Text>
             }
          
         
@@ -75,4 +78,3 @@ function addTask(){
 }
 
 export default Tasks;
-//test

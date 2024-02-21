@@ -9,7 +9,7 @@ const TaskData = [
     id:2,
     title: "Grocery Shopping",
     description: "Buy some eggs, and milk",
-    isComplete: true
+    isComplete: false
     },
     {
     id:3,
